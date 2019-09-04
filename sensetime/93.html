@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>hoverSlideout Demo</title>
+    <style type="text/css">
+
+        .bar {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            transition: 0.2s all linear;
+            border-radius: 4px;
+            background-color: #CCC;
+            box-sizing: border-box;
+        }
+
+        .bar.active {
+            background-color: red;
+            width: 30px;
+            border-radius: 4px;
+        } </style>
+</head>
+
+<body>
+<h3>css3 transition 实现div宽度以中心为原点向两边伸长</h3>
+<span class="container">
+    <div class="bar active"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <button>click</button>
+</span>
+
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+<script type="text/javascript">
+    var index = 0;
+    var toggle = 1;
+
+    var time = setInterval(move, 1000);
+
+    function move(){
+        index+=toggle;
+        if(index===2){
+            toggle=-1
+        }
+        if(index===0){
+            toggle=1
+        }
+        console.log(index);
+        $("div").eq(index).addClass('active').siblings().removeClass("active");
+    }
+
+
+</script>
+</body>
