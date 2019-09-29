@@ -6,7 +6,7 @@
 
 @theme-red:rgb(233,53,56);
 
-.index{
+
   .rotate{
     transform: rotate(-90deg);
     transition: all .3s linear;
@@ -120,6 +120,108 @@
       color:#C4C4C4;
     }
 
+  }
+
+  //手机导航
+  .mobile-menu{
+    box-sizing: border-box;
+    box-shadow: 0 1px 10px rgba(0,0,0,.15);
+    width: 100%;
+    height: 50px;
+    padding: 3px 14px;
+    img{
+      height: 100%;
+    }
+    .navbar-toggle{
+      transition: all 0.3s;
+      padding: 0;
+      margin: 13px 0 0 0;
+      .icon-bar{
+        background: #111;
+      }
+      .bar-1{
+        transform: rotate(35deg);
+      }
+      .bar-3{
+        transform: rotate(-35deg);
+      }
+      >span{
+        transform-origin: 0 50%;
+        transition: all 0.3s;
+      }
+    }
+  }
+
+  //手机导航内容
+  .mobile-menu-content{
+    .phone-nav{
+      box-sizing: border-box;
+      background: white;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      overflow-y: auto;
+      transition: all 0.6s;
+      z-index: 9999;
+      li a{
+        color: #969696;
+        display: block;
+        text-decoration: none;
+      }
+      li, .single-line{
+        margin-left: 1.6%;
+        height: 50px;
+        line-height: 50px;
+        font-size:1.8rem;
+        color: #969696;
+        border-bottom: 0.5px solid rgb(230,230,230);
+        .phone-nav-1{
+          height: 100%;
+          background: #fff;
+          z-index: 2;
+          transition: transform .6s,opacity .2s;
+          //opacity: 0;
+          //overflow-y: auto;
+          position: fixed;
+          top: 50px;
+          left: 0;
+          width: 100%;
+          transform: translateX(100%);
+          .fanhui{
+            background-color: #EEEEEE;
+            padding-left: 1.6%;
+            color: #000;
+            font-weight: 600;
+          }
+          .phone-nav-znqc{
+            position: relative;
+            span{
+              display: inline-block;
+              position: absolute;
+              right:10%;
+            }
+          }
+          .phone-nav-znqc.hover{
+            color:@theme-red;
+            span{
+              transform: rotate(90deg);
+            }
+          }
+          .phone-nav-znqc-box{
+            margin-left: 3.2%;
+            display: none;
+            font-size: 90%;
+            line-height: 2.5;
+            color: #969696;
+
+          }
+        }
+        .phone-nav-1.active{
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
   }
   .header_shadow{
     box-shadow:0 5px 15px #CCC inset;
@@ -281,9 +383,13 @@
     position: relative;
     height: 565px;
     width: 100%;
+    @media screen and (max-width: 768px){
+      height: 330px;
+    }
     .pic-container{
       width: 100%;
       height: 100%;
+      overflow: hidden;
       img{
         position: absolute;
         top: 0;
@@ -350,7 +456,7 @@
       font-size: 50px;
       position: absolute;
       left: 10px;
-      top:270px;
+      top:40%;
     }
     .right-button{
       background-color: transparent;
@@ -359,7 +465,7 @@
       font-size: 50px;
       position: absolute;
       right: 10px;
-      top:270px;
+      top:40%;
 
     }
     .carousel-button-hover{
@@ -367,32 +473,46 @@
     }
   }
 
+  //视频弹窗
+  .modal-vodeo{width: 80%;max-width: 1000px;margin: auto;height: 100%;}
+  .modal-vodeo>.modal-content{text-align: center;padding:.6rem;top:50%;transform: translateY(-50%);}
+  .m-close{position: absolute;right: .2rem;top:.2rem;z-index: 2;}
+
   //中间内容样式
   .mid-content{
     text-align: center;
-    width: 1220px;
+    width: 100%;
     box-sizing: border-box;
     margin: 60px auto;
+    @media screen and (max-width: 768px){
+      margin: 3rem 0;
+    }
     .title{
-      font-size: 48px;
+      font-size: 4.48rem;
       font-weight: 500;
       color: #414147;
       font-style: normal;
       text-align: center;
       margin-bottom: 35px;
-    .mainbody{
-      color: #707070;
-      font-size: 22px;
-      font-style: normal;
-      font-weight: 400;
+      @media screen and (max-width: 768px){
+        font-weight: bold;
+        margin: 3rem 1.6rem;
+        font-size: 2.8rem;
+        line-height: 1.4285714286;
+      }
+    }
+    .main-text{
       color: #707070;
       text-align: center;
       margin-bottom: 54px;
       font-size: 22px;
       font-style: normal;
       font-weight: 400;
-
-    }
+      @media screen and (max-width: 768px){
+        line-height: 1.72;
+        font-size: 1rem;
+        margin: 0 1.6rem 1.6rem 1.6rem;
+      }
     }
     //中间一堆小图样式
     .icon-sum{
@@ -404,6 +524,10 @@
         text-decoration: none;
         :hover{
           color:@theme-red;
+        }
+        @media screen and (max-width: 768px){
+          margin-left: 15px;
+          margin-right: 15px;
         }
         img{
           width: 55px;
@@ -435,6 +559,14 @@
     text-align: left;
     border: 1px solid #e7282b;
     position: relative;
+    @media screen and (max-width: 768px){
+      height: 35px;
+      width: 115px;
+      line-height: 35px;
+      font-size: 14px;
+      border-radius: 17px;
+      padding-left: 18px;
+    }
     span{
       background: url('../../image/index/djt-2.png') no-repeat 30% center;
       overflow: hidden;
@@ -447,6 +579,14 @@
       top: 50%;
       margin-top: -14px;
       transition: background-position .3s;
+      @media screen and (max-width: 768px){
+        background-size: 60%;
+        width: 20px;
+        height: 20px;
+        right: 10px;
+        top: 50%;
+        margin-top: -11px;
+      }
       &:after{
         content: '';
         position: absolute;
@@ -487,6 +627,14 @@
     background-color: rgba(231,36,39,.7);
     border: 1px solid #E66065;
     position: relative;
+    @media screen and (max-width: 768px){
+      height: 35px;
+      width: 115px;
+      line-height: 35px;
+      font-size: 14px;
+      border-radius: 17px;
+      padding-left: 18px;
+    }
     &:hover{
       background-color: rgba(231,36,39);
     }
@@ -502,6 +650,14 @@
       top: 50%;
       margin-top: -14px;
       transition: background-position .3s;
+      @media screen and (max-width: 768px){
+        background-size: 60%;
+        width: 20px;
+        height: 20px;
+        right: 10px;
+        top: 50%;
+        margin-top: -11px;
+      }
       &:after{
         content: '';
         position: absolute;
@@ -540,6 +696,14 @@
     text-align: left;
     border: 1px solid white;
     position: relative;
+    @media screen and (max-width: 768px){
+      height: 35px;
+      width: 115px;
+      line-height: 35px;
+      font-size: 14px;
+      border-radius: 17px;
+      padding-left: 18px;
+    }
     span{
       background: url('../../image/index/djt-1.png') no-repeat 30% center;
       overflow: hidden;
@@ -552,6 +716,14 @@
       top: 50%;
       margin-top: -14px;
       transition: background-position .3s;
+      @media screen and (max-width: 768px){
+        background-size: 60%;
+        width: 20px;
+        height: 20px;
+        right: 10px;
+        top: 50%;
+        margin-top: -11px;
+      }
       &:after{
         content: '';
         position: absolute;
@@ -583,12 +755,14 @@
     background-color: #f8f8f8;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 20px;
     .block-top{
       box-sizing: border-box;
       width: 100%;
       height: 200px;
       overflow: hidden;
       .avatar>img{
+        width: 100%;
         transition: transform 0.3s ease 0s;
       }
       .avatar:hover img{
@@ -640,6 +814,9 @@
         a:hover{
           color:@theme-red
         }
+        &:last-child{
+          border: none;
+        }
       }
       .news-title{
         text-decoration: none;
@@ -666,11 +843,13 @@
   .AI-secure{
     height: 540px;
     width: 100%;
-
+    @media screen and (max-width: 768px){
+      height: 220px;
+    }
     .wrapper{
       position: relative;
       width: 100%;
-      height: 600px;
+      height: 100%;
     }
     .content{
       background-size: contain;
@@ -682,106 +861,197 @@
       height: 100%;
       width: 100%;
       padding-left: 20%;
+      @media screen and (max-width: 768px){
+        padding-top: 40px;
+        padding-left: 10%;
+      }
       .title{
         line-height: 50px;
         margin-bottom: 40px;
         max-width: 430px;
+        @media screen and (max-width: 768px){
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
       }
     }
     .tab1{
       background: url("../../image/index/middle/5c74fdfc8f0fe.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
     .tab2{
       background: url("../../image/index/middle/tab-2.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
     .tab3{
       background: url("../../image/index/middle/tab-3.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
     .tab4{
       background: url("../../image/index/middle/tab-4.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
     .tab5{
       background: url("../../image/index/middle/tab-5.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
     .tab6{
       background: url("../../image/index/middle/tab-6.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
     .tab7{
       background: url("../../image/index/middle/tab-7.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
     .tab8{
       background: url("../../image/index/middle/tab-8.jpg") no-repeat;
+      @media screen and (max-width: 768px){
+        background-position: -200px;
+        background-size: 0.4*1920px 0.4*540px;
+      }
     }
   }
 
   //第二个轮播图样式
-  .slider{
-    position: relative;
+
+  .responsive{
     width: 100%;
-    height:675px;
+    display: flex;
+    @media screen and (max-width: 768px){
+      flex-direction: column;
+    }
+  }
+  .slide-left{
+    width: 50%;
+    height: 100%;
     overflow: hidden;
-    display: inline-block;
-    .vertical-buttons{
-      position: absolute;
-      right: 45px;
-      top:110px;
-      color:white;
-      .circle-outer{
-        margin: 50px 0;
-        box-sizing: border-box;
-        position: relative;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        border: 1px solid transparent;
-        &:hover{
-          border:1px solid white;
-        }
-      }
-      .border{
-        border:1px solid white;
-      }
-      .circle-dot{
-        box-sizing: border-box;
-        top: 9px;
-        left:9px;
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background-color: white;
-      }
-    }
-    .responsive{
+    @media screen and (max-width: 768px){
       width: 100%;
-      display: flex;
+      height: 255px;
     }
-    .slide-left{
-      width: 50%;
-      height: 100%;
-      overflow: hidden;
+    img{
+      @media screen and (max-width: 768px){
+        width: 100%;
+        height: 255px;
+      }
+      cursor: pointer;
+      transition: transform 0.6s ease;
+      &:hover{
+        transform: scale(1.05);
+      }
+    }
+  }
+  .slide-right{
+    color:white;
+    font-weight: 500;
+    width: 50%;
+    height: 100%;
+    padding: 145px 145px;
+    @media screen and (max-width: 768px){
+      width: 100%;
+      height: 255px;
+      padding: 30px 60px;
+    }
+    >img{
+      @media screen and (max-width: 768px){
+        width: 80%;
+      }
+    }
+    .wo{
+      animation: fadeInUpa 1s backwards;
       img{
-        cursor: pointer;
-        transition: transform 0.6s ease;
-        &:hover{
-          transform: scale(1.05);
-        }
+        animation-delay: .4s !important;
       }
     }
-    .slide-right{
+    .right-title{
       font-size: 44px;
-      color:white;
-      font-weight: 500;
-      width: 50%;
-      height: 100%;
-      padding: 145px 145px;
-      .wo{
-        animation: fadeInUpa 1s backwards;
-        img{
-          animation-delay: .4s !important;
-        }
+      @media screen and (max-width: 768px){
+        font-size: 20px;
       }
     }
+  }
+
+  //轮播图2-2， swiper自带样式的修改
+  .swiper-container {
+    width: 100%;
+  }
+
+  .index-page {
+    width: 24px !important;
+    right: 2rem;
+    left: auto !important;
+    bottom: auto !important;
+    top: 45%;
+    transform: translateY(-50%);
+    @media screen and (max-width: 768px){
+      right: 10%;
+      top: 30%;
+    }
+
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    text-align: center;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    -webkit-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    z-index: 10;}
+
+  .index-page .swiper-pagination-bullet:hover, .index-page .swiper-pagination-bullet-active{
+    border: 1px solid #FFF;
+  }
+
+  .index-page .swiper-pagination-bullet {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    opacity: 1;
+    background: none;
+    margin: .4rem 0 !important;
+    position: relative;
+    /*border: 1px solid rgba(0,0,0,0);*/
+  }
+
+  .swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+  }
+
+  .index-page .swiper-pagination-bullet:after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #FFF;
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    border-radius: 50%;
   }
 
   //合作伙伴
@@ -790,22 +1060,35 @@
       text-align: left;
       box-sizing: border-box;
       margin: 60px auto;
+      @media screen and (max-width: 768px){
+        margin: 3rem 0;
+      }
       .title{
         font-size: 48px;
         font-weight: 500;
         color: #414147;
-        font-style: normal;;
+        font-style: normal;
         margin-bottom: 35px;
-        .mainbody{
-          color: #707070;
-          font-size: 22px;
-          font-style: normal;
-          font-weight: 400;
-          margin-bottom: 54px;
+        @media screen and (max-width: 768px){
+          font-weight: bold;
+          margin: 3rem 1.6rem;
+          font-size: 2.8rem;
+          line-height: 1.4285714286;
+        }
+      }
+      .mainbody{
+        color: #707070;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: 54px;
+        @media screen and (max-width: 768px){
+          line-height: 1.72;
+          font-size: 1rem;
+          margin: 0 1.6rem 1.6rem 1.6rem;
         }
       }
     }
-    height: 600px;
     background-color: #F0F0F0;
     width: 100%;
     margin: auto;
@@ -817,6 +1100,7 @@
     }
     .slide-up{
       transition: margin-top 0.3s;
+      width: 100%;
     }
     .slide-up:hover{
       margin-top: -5px;
@@ -826,7 +1110,6 @@
   //底部footer
   .black-footer{
     width: 100%;
-    height: 460px;
     background-color: #252526;
     display: flex;
     flex-direction: column;
@@ -839,6 +1122,11 @@
       max-width: 800px;
       color: #dcdcdc;
       font-size: 18px;
+      @media screen and (max-width: 768px){
+        font-size: 1.48rem;
+        margin-top: 40px;
+        width: 90%;
+      }
       .title{
         color:#707070;
       }
@@ -853,10 +1141,22 @@
       border-radius: 25px;
       font-size: 18px;
       height: 50px;
-      width: 815px;
+      max-width: 815px;
+      width: 80%;
       display:flex;
       justify-content: space-between;
       line-height: 50px;
+      @media screen and (max-width: 768px){
+        font-size: 1.3rem;
+        margin-top: 20px;
+        width: 100%;
+        background-color: transparent;
+        border-top: 1px solid #2e2e2f;
+        border-bottom: 1px solid #2e2e2f;
+        border-left: none;
+        border-right: none;
+        border-radius: unset;
+      }
       a:hover{
         text-decoration: none;
         color:@theme-red
@@ -869,8 +1169,15 @@
       margin-top: 80px;
       height: 35px;
       width: 20%;
+      @media screen and (max-width: 768px){
+        margin-top: 40px;
+        width: 70%;
+      }
       img{
         height: 130%;
+        @media screen and (max-width: 768px){
+          height: 100%;
+        }
       }
       a{
         position: relative;
@@ -879,7 +1186,14 @@
         height: 35px;
         line-height: 35px;
         background-position: 0 -35px;
+        background-size: cover;
         transition: background-position 0.5s;
+        @media screen and (max-width: 768px){
+          width: 26px;
+          height: 26px;
+          line-height: 26px;
+          background-position: 0 -26px;
+        }
         &:hover{
           background-position: 0 0;
         }
@@ -936,6 +1250,55 @@
       color:#707070;
       max-width: 1220px;
       width: 60%;
+      @media screen and (max-width: 768px){
+        margin-top: 40px;
+        width: 90%;
+        justify-content: flex-start;
+        font-size: 1rem;
+        padding: 15px 0;
+      }
     }
   }
-}
+
+  //返回顶部按钮
+  .to-top{
+    display: none;
+    width: 4rem;
+    height: 4rem;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 90;
+    transition: all .5s;
+    background: rgba(68,68,68,.1);
+    border-radius: 50%;
+    cursor: pointer;
+    .m-center{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  //核心技术样式
+//.coreTech1{
+//  body{
+//    font-size: 14px;
+//    font-family: 思源黑体, 微软雅黑, 宋体, Helvetica, sans-serif;
+//    color: rgb(51, 51, 51);
+//    width: 100%;
+//    background: rgb(255, 255, 255);
+//  }
+//  .mid-picture{
+//    width: 100%;
+//    height: 530px;
+//    background: url("../../image/coreTech1/hxjs-banner.jpg");
+//    text-align: center;
+//    h1{
+//
+//    }
+//  }
+//}
+
